@@ -1,0 +1,116 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* .styled-component {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin: 20px;
+}
+
+.styled-component.styled {
+  background-color: var(--primary-color, #4CAF50);
+  color: white;
+  transform: translateX(0);
+  animation: fadeIn 1s ease-out;
+}
+
+.styled-component h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.styled-component.styled:hover {
+  background-color: var(--secondary-color, #45a049);
+  transform: translateX(10px);
+} */ 
+
+/* Animation for fade-in effect */
+/* @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* .profile{
+  border: 1px solid black;
+} */
+
+.ComponentIsStyled{
+  background-color: rgb(236, 237, 237);
+  /* border: 1px solid grey; */
+  border-radius: 5px ;
+  width: 400px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding-bottom: 5px;
+}
+.profile-img{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.follow{
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 5px;
+  background-color: rgb(56, 149, 249);
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-weight: bold;
+}
+.NotStyled{
+  background-color: white;
+}
+.btn{
+  background-color: rgb(222, 224, 203);
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
