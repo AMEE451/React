@@ -19,7 +19,7 @@ app.use(
     })
 );
 
-app.use(courseRouter)
+app.use("/",courseRouter)
 
 let PORT = process.env.PORT
 

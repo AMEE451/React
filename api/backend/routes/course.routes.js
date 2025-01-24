@@ -4,7 +4,7 @@ import {createcourse,deletecourse,getcourse,updatecourse} from "../controller/co
 const courseRouter=Router()
 
 courseRouter.post("/create",createcourse)
-courseRouter.get("/",getcourse)
+courseRouter.get("/courses",getcourse)
 courseRouter.patch("/update/:id",updatecourse)
 courseRouter.delete("/delete/:id",deletecourse)
 

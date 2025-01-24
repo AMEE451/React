@@ -6,13 +6,10 @@ const Courses = () => {
     let [data, setData] = useState([])
     const getCourses = async () => {
         try {
-            let res = await axios.get("http://localhost:8090/")
-            // console.log(res.data);
-            if (res.data && Array.isArray(res.data.data)) {
-                setData(res.data.data);  // Access the 'data' property
-            } else {
-                console.error("Expected an array inside 'data' but got:", res.data);
-            }
+            let res = await axios.get("http://localhost:8090/courses")
+             console.log(res.data);
+                setData(res.data.data);
+           
         } catch (error) {
             console.log("couldn't get", error);
         }
@@ -23,20 +20,19 @@ const Courses = () => {
             await axios.delete(`http://localhost:8090/delete/${id}`)
         } catch (error) {
             console.log("couldn't delete", error);
-
         }
     }
 
     useEffect(() => {
         getCourses()
-    }, [handleDelete])
+    }, [])
 
 
     return (
         <div>
             {
                 data.map((ele) => {
-                    return <CourseCard key={ele.id} {...ele} onDelete={handleDelete} />
+                    return <CourseCard key={ele._id} {...ele} onDelete={handleDelete} />
                 })
             }
         </div>
