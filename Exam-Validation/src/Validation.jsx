@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import z from "zod"
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const formvalidation = z.object({
     name: z.string().min(2, "minimum 2 characters").max(15, "maximum 15 characters"),
@@ -31,8 +32,13 @@ const Validation = () => {
     let value = watch()
     console.log(value);
 
-    const onsubmit = (data) => {
-        console.log("submitted", data);
+    const createuser=async(user)=>{
+        let data=await axios.post("http://localhost:8090/users/create",user)
+    }
+
+    const onsubmit=async(e)=>{
+        e.preventDefault()
+        createuser()
     }
 
     return (
