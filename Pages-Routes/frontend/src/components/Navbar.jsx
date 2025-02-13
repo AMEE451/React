@@ -1,7 +1,19 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { getUserDetails } from "../userDetails"
+import { Ability } from "../role/Ability"
+import Cookies from "js-cookie";
 
 const Navbar = () => {
+
+    const nav = useNavigate()
+    let user = getUserDetails()
+
+    const logout = () => {
+        Cookies.remove("token")
+        nav("/login")
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -12,20 +24,27 @@ const Navbar = () => {
                                 Home
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/assign">
-                                Assign
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                                <Link className="nav-link" to="/login">
-                                    Login
+                        {Ability(["admin"]) ? (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/assign">
+                                    Assign
                                 </Link>
-                        </li>
+                            </li>
+                        ) : null}
                         <li className="nav-item">
-                                <Link className="nav-link" to="/signup">
+                            {user ? (
+                                <p className="nav-link"> {user.name}</p>):
+                                (<Link className="nav-link" to="/signup">
                                     Signup
                                 </Link>
+                            )}
+                        </li>
+                        <li className="nav-item">
+                            {user ? (<p className="nav-item" onClick={logout} style={{ cursor: "pointer" }}>Logout</p>) :
+                                (<Link className="nav-link" to="/signup">
+                                    Login
+                                </Link>)
+                            }
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
