@@ -1,19 +1,23 @@
 const User = require("../model/user.model")
-const { hashPassword, genereateToken } = require("../utils/helper")
+const { hashPassword, genereateToken, compare } = require("../utils/helper")
 
 const signup = async (req, res) => {
-    let user = await User.findOne({ email: req.body.email })
-    if (user) {
-        return res.status(403).send({ msg: "user already exists" })
-    }
-    req.body.password = await hashPassword(req.body.password)
-    user = await User.create(req.body)
-    let token = await genereateToken({
-        id: user.id,
-        name: user.name,
-        role: user.role
-    })
-    return res.status(201).send({ user, token })
+   try {
+     let user = await User.findOne({ email: req.body.email })
+     if (user) {
+         return res.status(403).send({ msg: "user already exists" })
+     }
+     req.body.password = await hashPassword(req.body.password)
+     user = await User.create(req.body)
+     let token = await genereateToken({
+         id: user.id,
+         name: user.name,
+         role: user.role
+     })
+     return res.status(201).send({ user, token })
+   } catch (error) {
+        res.send({error:error.message})
+   }
 }
 
 const login = async (req, res) => {
@@ -37,7 +41,7 @@ const login = async (req, res) => {
 }
 
 const getAllUsers = async (req, res) => {
-    let users = await User.findAll()
+    let users = await User.find()
     res.status(200).send(users)
 }
 

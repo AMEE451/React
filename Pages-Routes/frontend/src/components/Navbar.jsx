@@ -24,7 +24,7 @@ const Navbar = () => {
                                 Home
                             </Link>
                         </li>
-                        {Ability(["admin"]) ? (
+                        {Ability(["admin","user"]) ? (
                             <li className="nav-item">
                                 <Link className="nav-link" to="/assign">
                                     Assign
@@ -33,11 +33,11 @@ const Navbar = () => {
                         ) : null}
                         <li className="nav-item">
                             {user ? (
-                                <p className="nav-link"> {user.name}</p>):
+                                <p className="nav-link"> {user.name}</p>) :
                                 (<Link className="nav-link" to="/signup">
                                     Signup
                                 </Link>
-                            )}
+                                )}
                         </li>
                         <li className="nav-item">
                             {user ? (<p className="nav-item" onClick={logout} style={{ cursor: "pointer" }}>Logout</p>) :
